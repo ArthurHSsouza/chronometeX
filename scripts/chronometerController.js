@@ -4,17 +4,14 @@ class Chronometer{
          this._state;
          this._time = document.querySelector('#time');
          this._interval;
-         //this._continuePlaying;
-         this._audio = new Audio('./audios/gemido.mp3');
+         this._audio; 
          this._box; 
          this._button;
          this.init();
      }
 
     init(){
-        this.audio = new Audio('./audios/gemido.mp3');
         this.time = "00:00:00";
-        this.continuePlaying = true;
         let button = document.querySelector('#sendButton');
         button.addEventListener('click',a=>{
             this.process();
@@ -22,59 +19,72 @@ class Chronometer{
     }
 
     process(){
-        this.time = "00:00:00";
+        
         clearInterval(this.interval);
-
+        this.audio = new Audio('./audios/gemido.mp3');
+        
         let duration = document.querySelector('#duration').value;
         let progression = document.querySelector('#progression').value;
- 
-
-        if(progression === "reg"){
-            let milliseconds = duration*60000;
-            milliseconds < 1000 ? milliseconds = 1000 : true;
-            this.time = this.transform(milliseconds);
-            this.interval = setInterval(()=>{
-                milliseconds -= 1000;
-                this.time = this.transform(milliseconds);
-                if(milliseconds <= 0){
-                    this.activateAudio();
-                    clearInterval(this.interval);
-                    
-                }
-            },1000)
-        }else{
-            if(progression == "prog"){
-                let milliseconds = 0;
-                this.time = this.transform(milliseconds);
-                this.interval = setInterval(()=>{
-                milliseconds += 1000;
-                this.time = this.transform(milliseconds);
-                if(milliseconds >= duration*60000){ 
-                    this.activateAudio();
-                    clearInterval(this.interval);
-                   
-                }
-            },1000)
-          }
+        if(parseFloat(duration) > 0){
+         if(progression === "reg"){
+               let milliseconds = duration*60000;
+               milliseconds < 1000 ? milliseconds = 1000 : true;
+               this.time = this.transform(milliseconds);
+               this.interval = setInterval(()=>{
+                  milliseconds -= 1000;
+                  this.time = this.transform(milliseconds);
+                  if(milliseconds <= 0){
+                     this.activateAudio();
+                     clearInterval(this.interval);
+                     
+                  }
+               },1000)
+         }else{
+               if(progression == "prog"){
+                  let milliseconds = 0;
+                  this.time = this.transform(milliseconds);
+                  this.interval = setInterval(()=>{
+                  milliseconds += 1000;
+                  this.time = this.transform(milliseconds);
+                  if(milliseconds >= duration*60000){ 
+                     this.activateAudio();
+                     clearInterval(this.interval);
+                     }
+               },1000)
+            }
         }
+      }
     }
 
     activateAudio(){
+        
+        let sendButton = document.querySelector('#sendButton');
+        sendButton.disabled = true;
+
         this.box = document.querySelector('#box');
         this.button = document.createElement('button');
         this.button.setAttribute('id',"boxButton")
         this.button.innerHTML = "Parar alarme";
+
+        setTimeout(()=>{
+           this.closeButtonEvents();
+        },this.audio.duration*1000);
         this.button.addEventListener('click',a=>{
-        this.audio.pause();
-        this.end();   
+              this.closeButtonEvents();
         })
         this.box.appendChild(this.button);
         this.audio.play();    
     }
 
+    closeButtonEvents(){
+         this.audio.pause();
+         this.end();
+         this.init();  
+         sendButton.disabled = false;
+    }
+
     end(){
-        this.box.removeChild(this.button)
-        this.init();
+         this.box.removeChild(this.button);
     }
 
     transform(value){
