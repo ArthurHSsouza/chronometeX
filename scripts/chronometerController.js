@@ -21,8 +21,7 @@ class Chronometer{
     process(){
         
         clearInterval(this.interval);
-        this.audio = new Audio('./audios/gemido.mp3');
-        
+        this.audio = new Audio('./audios/sirene.mp3');
         let duration = document.querySelector('#duration').value;
         let progression = document.querySelector('#progression').value;
         if(parseFloat(duration) > 0){
