@@ -1,129 +1,159 @@
 *{
-    margin: 0;
-}
-
-@font-face{
-    font-family: DS-digital;
-    src: url("DS-DIGI.TTF");
-}
-
-.fields{
-    margin-bottom: 1rem; 
-    padding-left: 0.2rem; 
-    width: 100%;
-    height: 2.5rem;
-    border-radius: 0.3rem;
-    border: none;
-    background: rgb(255, 255, 255);
-    font-size: 1rem;
-    color: rgb(114, 114, 114);
+    margin: 0 auto;
 }
 
 body{
-    background: rgb(49, 49, 49);
+    background: #1C1C1C;
 }
 
-#sendButton{
-    margin-bottom: 1rem;    
+html{
+    overflow-x: hidden;
+}
+
+h2{
+    color: white;
+    font-family: Roboto;
+}
+
+#top-text{
     width: 100%;
-    height: 3rem;
-    border-radius: 0.3rem;
-    border: none;
-    background:  rgb(74, 211, 97);
-    color: white;
-    font-family: "IBM Plex Sans";
-    font-size: 1.1rem;
-}
-
-#boxButton{
-    width: 13.5rem;
     height: 6rem;
-    border-radius: 0.3rem;
-    border: none;
-    background:rgb(74, 211, 97);
+    display: flex;
+    font-size: 1.4rem;
+    font-family: Roboto;
     color: white;
-    font-size: 1.2rem;
-}
-
-#sendButton:hover{
-    background: rgb(36, 173, 59);
+    align-items: center;
+    margin: 0 auto;
+    background: #313131;
 }
 
 #results{
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr  2fr;
-    margin: 0 auto;
-    width: 73%;
-    height: 25rem;
+    margin-top: 5%;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
     justify-content: center;
-    padding: 3.5rem 3rem;
-    background-color: rgb(24, 24, 24);
-    border-radius: 0.8rem;
 }
-
 #inputs{
-    height: 50%;
+    width: 65%;
+    margin-top: 8%;
+    margin-bottom: 8%;
     display: grid;
-    grid-template-rows: 1fr  1fr  1fr  1fr  1fr  1fr;
-    justify-content: end;
+    grid-template-rows: 1fr 1fr 1fr;
 }
-#top-text{
-    margin: 2% auto;
-    margin-bottom: 1rem;
-    text-align: center;
-    width: 73%;
-    padding: 1.1rem 3rem;
-    border-radius: 0.8rem;
-    color: rgb(85, 238, 111);
-    background: rgb(24, 24, 24);
-    font-family: "IBM Plex Sans";
-    font-size: 1.4rem;
-}
+
 #box{
-    background: rgb(255, 255, 255);
-    width: 80%;
-    height: 20rem;
+    width: 17rem;
+    height: 17rem;
+    border-radius: 50%;
+    border: 0.2rem solid #3B983F;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: Roboto;
+}
+.fields{
+    width: 100%;
+    padding: 0;
+    border: none;
+    margin-bottom: 1.6rem;
+    height: 3rem;
+    background: #363636;
+    padding-left: 0.3rem;
+    color: rgb(170, 170, 170);
+    font-size: 1rem;
     border-radius: 0.8rem;
-    margin-left: 2rem;
-    display: grid;
-    grid-template-rows: 2fr 1fr;
-    padding: 0.8rem;
+}
+
+#sendButton{
+    width: 100%;
+    height: 2.7rem;
+    background: #3B983F;
+    color: white;
+    border: none;
+    border-radius: 0.8rem;
+    font-size: 1.3rem;
+    font-family: Roboto;
+}
+
+#showButton{
+    display: flex;
+    align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    font-family: DS-digital;
-    color: rgb(75, 75, 75);
 }
 
-#box > h1{
-    margin-top: 1.2rem;
+#boxButton{
+    width: 30%;
+    height: 6rem;
+    background: #B12424;
+    color: white;
+    font-family: Roboto;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 0.8rem;
 }
 
+@media(min-width: 900px){
+ html{
+    overflow-y: hidden;
+   } 
 
-@media(min-width: 1100px){
-    #results{
-        width: 60rem;
-        height: 30rem;
-        padding: 2.5rem;
-    }
-    #top-text{
-        width: 60rem;
-    }
-    #box{
-        margin-top: 1rem;
-        width: 32rem;
-    }
-    #inputs{
-        margin-top: 1rem;
-        justify-content: center;
-    }
-    .fields{
-        width: 17rem;
-        margin: 1rem;
-    }
-    #sendButton{
-        width: 17rem;
-        margin: 1rem;
-    }
+  #results{
+      width: 100%;
+      display: grid;
+      margin-left: 0.3rem;
+      margin: 0 auto;
+      grid-template-columns: 1fr 1fr;
+  }
+
+  .fields{
+      width: 30rem;
+      height: 2.5rem;
+      margin-bottom: 2rem;
+  }
+  #inputs{
+      margin-top: -30%;
+      width: 50rem;
+      align-items: center;
+      justify-content: center;
+
+  }
+  #sendButton{
+      margin: 0 auto;
+      width: 30rem;
+      height: 2.5rem;
+      font-size: 1.1rem;
+      
+  }
+  #box{
+      width: 18rem;
+      height: 18rem;
+      margin: 5rem;
+      font-size: 1.2rem;
+  }
+
+  #top-text{
+      font-size: 1.5rem;
+      height: 5rem;
+  }
+  #right-side{
+      display: grid;
+      grid-template-rows: 2fr 1fr;
+  }
+  #showButton{
+      width: 15rem;
+      height: 2rem;
+      
+    
+  }
+
+ #boxButton{
+      width: 100%;
+      height: 3rem;
+      font-size: 1rem;
+ }
+
 
 }
-

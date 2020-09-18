@@ -60,13 +60,13 @@ class Chronometer{
         let sendButton = document.querySelector('#sendButton');
         sendButton.disabled = true;
 
-        this.box = document.querySelector('#box');
+        this.box = document.querySelector('#showButton');
         this.button = document.createElement('button');
         this.button.setAttribute('id',"boxButton")
         this.button.innerHTML = "Parar alarme";
 
         setTimeout(()=>{
-           this.closeButtonEvents();
+         this.closeButtonEvents();
         },this.audio.duration*1000);
         this.button.addEventListener('click',a=>{
               this.closeButtonEvents();

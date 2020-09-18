@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="DS-DIGI.TTF">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="cronometro.png" type="image/x-icon">
     <title>Cronômetro</title>
 </head>
 <body>
-    <div id="top-text">
+    <nav id="top-text">
         <h2>ChronometeX</h2>
-    </div>
+    </nav>
     <div id="results">
         <div id="inputs">
         <input type="number" class="fields" placeholder="Valor em minutos" id="duration">
@@ -20,10 +20,14 @@
             <option value="reg">Regressivo</option>
             <option value="prog">Progressivo</option>
         </select>
-        <button class="button" id="sendButton">Começar</button>
+        <button id="sendButton">Começar</button>
         </div>
-        <div id="box">
-            <h1 id="time"></h1>
+        <div id="right-side">
+            <div id="box">
+              <h1 id="time"></h1>
+            </div>
+           <div id="showButton">  
+           </div> 
         </div>
     </div>
    
