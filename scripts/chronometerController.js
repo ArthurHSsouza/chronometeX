@@ -1,12 +1,12 @@
 class Chronometer{
      constructor(){
-         this._value;
-         this._state;
-         this._time = document.querySelector('#time');
-         this._interval;
-         this._audio; 
-         this._box; 
-         this._button;
+         this.value;
+         this.state;
+         this.time = document.querySelector('#time');
+         this.interval;
+         this.audio; 
+         this.box; 
+         this.button;
          this.init();
      }
 
@@ -45,7 +45,7 @@ class Chronometer{
                   this.interval = setInterval(()=>{
                   milliseconds += 1000;
                   this.time = this.transform(milliseconds);
-                  if(milliseconds >= duration*60000){ 
+                  if(milliseconds >= duration * 60000){ 
                      this.activateAudio();
                      clearInterval(this.interval);
                      }
@@ -100,48 +100,4 @@ class Chronometer{
           (seconds+"").length < 2 ? seconds = "0"+seconds : true; 
           return `${hours}:${minutes}:${seconds}`;
     }
-
-     //acessadores
-     get value(){
-        return this._value;
-     }
-     set value(value){
-        this._value = value;
-     }
-     get state(){
-        return this._state;
-     }
-     set state(value){
-        this._state = value;
-     }
-     get time(){
-        return this._time.innerHTML;
-     }
-     set time(value){
-        this._time.innerHTML = value;
-     }
-     get interval(){
-        return this._interval;
-     }
-     set interval(value){
-        this._interval = value;
-     }
-     get audio(){
-        return this._audio;
-     }
-     set audio(value){
-        this._audio = value;
-     }
-     get button(){
-        return this._button;
-     }
-     set button(value){
-        this._button = value;
-     }
-     get box(){
-        return this._box;
-     }
-     set box(value){
-        this._box = value;
-     }
 }
