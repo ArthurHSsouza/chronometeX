@@ -2,7 +2,7 @@ class Chronometer{
      constructor(){
          this.value;
          this.state;
-         this.time = document.querySelector('#time');
+         this._time = document.querySelector('#time');
          this.interval;
          this.audio; 
          this.box; 
@@ -100,4 +100,12 @@ class Chronometer{
           (seconds+"").length < 2 ? seconds = "0"+seconds : true; 
           return `${hours}:${minutes}:${seconds}`;
     }
+     
+    //acessadores
+     get time(){
+        return this._time.innerHTML;
+     }
+     set time(value){
+        this._time.innerHTML = value;
+     }
 }
